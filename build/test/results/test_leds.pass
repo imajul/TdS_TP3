@@ -1,0 +1,42 @@
+---
+:source:
+  :path: test
+  :file: test_leds.c
+:successes:
+- :test: test_LedsOffAfterCreate
+  :line: 26
+  :message: ''
+  :unity_test_time: 0
+- :test: test_IndividualLedOn
+  :line: 33
+  :message: ''
+  :unity_test_time: 0
+- :test: test_IndividualLedOff
+  :line: 41
+  :message: ''
+  :unity_test_time: 0
+- :test: test_MultipleLedOnAndOff
+  :line: 50
+  :message: ''
+  :unity_test_time: 0
+- :test: test_AllLedsOn
+  :line: 60
+  :message: ''
+  :unity_test_time: 0
+- :test: test_AllLedsOff
+  :line: 71
+  :message: ''
+  :unity_test_time: 0
+- :test: test_LedStatus
+  :line: 82
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 7
+  :passed: 7
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.0031733740033814684
