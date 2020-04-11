@@ -6,8 +6,6 @@
 • Se pueden prender todos los LEDs de una vez.
 • Se pueden apagar todos los LEDs de una vez.
 • Se puede consultar el estado de un LED.
-• Revisar limites de los parametros.
-• Revisar parámetros fuera de los limites.
  */
 
 #include "unity.h"
