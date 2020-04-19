@@ -19,9 +19,8 @@ void setUp(void)
 	Leds_Create(&ledsVirtuales);
 }
 
-void tearDown(void) 
+void tearDown(void)
 {
-
 }
 
 void test_LedsOffAfterCreate(void)
