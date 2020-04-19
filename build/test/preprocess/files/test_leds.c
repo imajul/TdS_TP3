@@ -7,9 +7,11 @@ static uint16_t ledsVirtuales;
 
 
 
-void setup(void){
+void setUp(void)
 
+{
 
+ Leds_Create(&ledsVirtuales);
 
  Leds_Create(&ledsVirtuales);
 
@@ -17,17 +19,21 @@ void setup(void){
 
 
 
-void tearDown(void){
+void tearDown(void)
+
+{
+
+
 
 }
 
 
 
-void test_LedsOffAfterCreate(void){
+void test_LedsOffAfterCreate(void)
 
+{
 
-
- ledsVirtuales = 0xFFFF;
+ uint16_t ledsVirtuales = 0xFFFF;
 
  Leds_Create(&ledsVirtuales);
 
@@ -35,19 +41,17 @@ void test_LedsOffAfterCreate(void){
 
 ((void *)0)
 
-), (UNITY_UINT)(30), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(31), UNITY_DISPLAY_STYLE_INT);
 
 }
 
 
 
-void test_IndividualLedOn(void){
+void test_IndividualLedOn(void)
 
-
+{
 
  const uint8_t led = 3;
-
- Leds_Create(&ledsVirtuales);
 
  Leds_On(led);
 
@@ -61,13 +65,11 @@ void test_IndividualLedOn(void){
 
 
 
-void test_IndividualLedOff(void){
+void test_IndividualLedOff(void)
 
-
+{
 
  const uint8_t led = 3;
-
- Leds_Create(&ledsVirtuales);
 
  Leds_On(led);
 
@@ -77,19 +79,17 @@ void test_IndividualLedOff(void){
 
 ((void *)0)
 
-), (UNITY_UINT)(47), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(46), UNITY_DISPLAY_STYLE_INT);
 
 }
 
 
 
-void test_MultipleLedOnAndOff(void){
+void test_MultipleLedOnAndOff(void)
 
-
+{
 
  const uint8_t led1 = 3, led2 = 15;
-
- Leds_Create(&ledsVirtuales);
 
  Leds_On(led1);
 
@@ -101,84 +101,62 @@ void test_MultipleLedOnAndOff(void){
 
 ((void *)0)
 
-), (UNITY_UINT)(57), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(55), UNITY_DISPLAY_STYLE_INT);
 
 }
 
 
 
-void test_AllLedsOn(void){
+void test_AllLedsOn(void)
 
+{
 
-
- uint16_t i = 0;
-
- Leds_Create(&ledsVirtuales);
-
- for(i=1;i<17;i++)
-
- {
-
-  Leds_On(i);
-
- }
+ Leds_TurnAllOn();
 
  UnityAssertEqualNumber((UNITY_INT)((0xFFFF)), (UNITY_INT)((ledsVirtuales)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(68), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(61), UNITY_DISPLAY_STYLE_INT);
 
 }
 
 
 
-void test_AllLedsOff(void){
+void test_AllLedsOff(void)
 
+{
 
-
- uint16_t i = 0;
-
- Leds_Create(&ledsVirtuales);
-
- for(i=1;i<17;i++)
-
- {
-
-  Leds_Off(i);
-
- }
+ Leds_TurnAllOff();
 
  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((ledsVirtuales)), (
 
 ((void *)0)
 
-), (UNITY_UINT)(79), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(67), UNITY_DISPLAY_STYLE_INT);
 
 }
 
 
 
-void test_LedStatus(void){
+void test_LedStatus(void)
 
+{
 
+ const uint8_t led1 = 3, led2 = 15;
 
- const uint8_t led = 3;
+ Leds_On(led1);
 
- uint8_t status;
-
- Leds_Create(&ledsVirtuales);
-
- Leds_On(led);
-
- status = Leds_Status(led);
-
-
-
- UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((status)), (
+ UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((Leds_Status(led1))), (
 
 ((void *)0)
 
-), (UNITY_UINT)(90), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(74), UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((Leds_Status(led2))), (
+
+((void *)0)
+
+), (UNITY_UINT)(75), UNITY_DISPLAY_STYLE_INT);
 
 }

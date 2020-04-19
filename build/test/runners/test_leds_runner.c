@@ -33,9 +33,6 @@ static void CMock_Destroy(void)
 {
 }
 
-/*=======Setup (stub)=====*/
-void setUp(void) {}
-
 /*=======Test Reset Options=====*/
 void resetTest(void);
 void resetTest(void)
@@ -86,13 +83,13 @@ static void run_test(UnityTestFunction func, const char* name, int line_num)
 int main(void)
 {
   UnityBegin("test_leds.c");
-  run_test(test_LedsOffAfterCreate, "test_LedsOffAfterCreate", 26);
-  run_test(test_IndividualLedOn, "test_IndividualLedOn", 33);
+  run_test(test_LedsOffAfterCreate, "test_LedsOffAfterCreate", 27);
+  run_test(test_IndividualLedOn, "test_IndividualLedOn", 34);
   run_test(test_IndividualLedOff, "test_IndividualLedOff", 41);
-  run_test(test_MultipleLedOnAndOff, "test_MultipleLedOnAndOff", 50);
-  run_test(test_AllLedsOn, "test_AllLedsOn", 60);
-  run_test(test_AllLedsOff, "test_AllLedsOff", 71);
-  run_test(test_LedStatus, "test_LedStatus", 82);
+  run_test(test_MultipleLedOnAndOff, "test_MultipleLedOnAndOff", 49);
+  run_test(test_AllLedsOn, "test_AllLedsOn", 58);
+  run_test(test_AllLedsOff, "test_AllLedsOff", 64);
+  run_test(test_LedStatus, "test_LedStatus", 70);
 
   return UnityEnd();
 }

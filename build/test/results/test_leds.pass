@@ -4,11 +4,11 @@
   :file: test_leds.c
 :successes:
 - :test: test_LedsOffAfterCreate
-  :line: 26
+  :line: 27
   :message: ''
   :unity_test_time: 0
 - :test: test_IndividualLedOn
-  :line: 33
+  :line: 34
   :message: ''
   :unity_test_time: 0
 - :test: test_IndividualLedOff
@@ -16,19 +16,19 @@
   :message: ''
   :unity_test_time: 0
 - :test: test_MultipleLedOnAndOff
-  :line: 50
+  :line: 49
   :message: ''
   :unity_test_time: 0
 - :test: test_AllLedsOn
-  :line: 60
+  :line: 58
   :message: ''
   :unity_test_time: 0
 - :test: test_AllLedsOff
-  :line: 71
+  :line: 64
   :message: ''
   :unity_test_time: 0
 - :test: test_LedStatus
-  :line: 82
+  :line: 70
   :message: ''
   :unity_test_time: 0
 :failures: []
@@ -39,4 +39,4 @@
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0031733740033814684
+:time: 0.0024087249985313974

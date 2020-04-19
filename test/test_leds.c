@@ -13,78 +13,64 @@
 
 static uint16_t ledsVirtuales;
 
-void setup(void){
-
+void setUp(void)
+{
+	Leds_Create(&ledsVirtuales);
 	Leds_Create(&ledsVirtuales);
 }
 
-void tearDown(void){
+void tearDown(void) 
+{
+
 }
 
-void test_LedsOffAfterCreate(void){
-
-	ledsVirtuales = 0xFFFF;
+void test_LedsOffAfterCreate(void)
+{
+	uint16_t ledsVirtuales = 0xFFFF;
 	Leds_Create(&ledsVirtuales);
-	TEST_ASSERT_EQUAL(0, ledsVirtuales);	
+	TEST_ASSERT_EQUAL(0, ledsVirtuales);
 }
 
-void test_IndividualLedOn(void){
-
+void test_IndividualLedOn(void)
+{
 	const uint8_t led = 3;
-	Leds_Create(&ledsVirtuales);
 	Leds_On(led);
 	TEST_ASSERT_EQUAL(1 << (led - 1), ledsVirtuales);
 }
 
-void test_IndividualLedOff(void){
-
+void test_IndividualLedOff(void)
+{
 	const uint8_t led = 3;
-	Leds_Create(&ledsVirtuales);
 	Leds_On(led);
 	Leds_Off(led);
 	TEST_ASSERT_EQUAL(0, ledsVirtuales);
 }
 
-void test_MultipleLedOnAndOff(void){
-
+void test_MultipleLedOnAndOff(void)
+{
 	const uint8_t led1 = 3, led2 = 15;
-	Leds_Create(&ledsVirtuales);
 	Leds_On(led1);
 	Leds_On(led2);
 	Leds_Off(led1);
 	TEST_ASSERT_EQUAL((1 << led2 - 1), ledsVirtuales);
 }
 
-void test_AllLedsOn(void){
-
-	uint16_t i = 0;
-	Leds_Create(&ledsVirtuales);
-	for(i=1;i<17;i++)
-	{
-		Leds_On(i);
-	}
+void test_AllLedsOn(void)
+{
+	Leds_TurnAllOn();
 	TEST_ASSERT_EQUAL(0xFFFF, ledsVirtuales);
 }
 
-void test_AllLedsOff(void){
-
-	uint16_t i = 0;
-	Leds_Create(&ledsVirtuales);
-	for(i=1;i<17;i++)
-	{
-		Leds_Off(i);
-	}
+void test_AllLedsOff(void)
+{
+	Leds_TurnAllOff();
 	TEST_ASSERT_EQUAL(0, ledsVirtuales);
 }
 
-void test_LedStatus(void){
-
-	const uint8_t led = 3;
-	uint8_t status;
-	Leds_Create(&ledsVirtuales);
-	Leds_On(led);
-	status = Leds_Status(led);
-
-	TEST_ASSERT_EQUAL(1, status);
+void test_LedStatus(void)
+{
+	const uint8_t led1 = 3, led2 = 15;
+	Leds_On(led1);
+	TEST_ASSERT_EQUAL(1, Leds_Status(led1));
+	TEST_ASSERT_EQUAL(0, Leds_Status(led2));
 }
-
