@@ -16,7 +16,6 @@ static uint16_t ledsVirtuales;
 void setUp(void)
 {
 	Leds_Create(&ledsVirtuales);
-	Leds_Create(&ledsVirtuales);
 }
 
 void tearDown(void)
